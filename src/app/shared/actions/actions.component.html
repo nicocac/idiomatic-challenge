@@ -1,0 +1,5 @@
+<div class="actions-container">
+  <button [disabled]="!options.create" (click)="handleEvent('create')" class="btn btn-create">Create</button>
+  <button [disabled]="!options.update" (click)="handleEvent('update')" class="btn btn-update">Update</button>
+  <button [disabled]="!options.delete" (click)="handleEvent('delete')" class="btn btn-delete">Delete</button>
+</div>

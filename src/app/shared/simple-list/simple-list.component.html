@@ -1,0 +1,11 @@
+<ul name="fruit"
+    class="simple-select">
+  <li *ngFor="let item of data"
+      (click)="onSelectEntity(item)"
+      [ngClass]="item.selected ? 'selected' : ''">
+    {{item.name}} {{item.surname}}
+  </li>
+  <p *ngIf="!data.length" class="no-data-message">
+    Do not exists data with the current filters.
+  </p>
+</ul>

@@ -1,0 +1,22 @@
+.btn {
+  padding: 5px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-weight: bold;
+  border: none;
+  box-shadow: -7px 9px 6px -10px rgba(0,0,0,0.32);
+  -webkit-box-shadow: -7px 9px 6px -10px rgba(0,0,0,0.32);
+  -moz-box-shadow: -7px 9px 6px -10px rgba(0,0,0,0.32);
+  cursor: pointer;
+}
+
+.btn-create {
+  background-color: lightgreen;
+}
+.btn-update {
+  background-color: lightgoldenrodyellow;
+}
+.btn-delete {
+  background-color: coral;
+}

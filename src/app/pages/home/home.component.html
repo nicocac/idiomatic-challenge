@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="filter-container">
+    <app-dynamic-input (filterChange)="handleFilterChange($event)"></app-dynamic-input>
+  </div>
+  <div class="simple-list-container">
+    <app-simple-list [data]="filteredEntities"
+                     (selectEntity)="handleSelectEntity($event)">
+    </app-simple-list>
+  </div>
+  <div class="entity-form-container">
+    <app-entity-form [(entity)]="entity">
+    </app-entity-form>
+  </div>
+  <div class="actions-container">
+    <app-actions [options]="options" (action)="handleActions($event)"></app-actions>
+  </div>
+</div>

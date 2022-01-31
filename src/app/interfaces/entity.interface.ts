@@ -1,4 +1,4 @@
-export interface entity {
+export interface IEntity {
   id: number;
   name: string;
   surname: string;

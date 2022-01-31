@@ -1,0 +1,12 @@
+<div class="form">
+  <div class="form-row">
+    <label for="prefix-input" class="col-2">Filter prefix: </label>
+    <div class="col-10">
+      <input [(ngModel)]="prefixText"
+             type="text"
+             id="prefix-input"
+             class="form-control"
+             (keyup)="subject$.next($event)"/>
+    </div>
+  </div>
+</div>

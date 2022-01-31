@@ -1,0 +1,18 @@
+.filter-container {
+  width: 100%;
+}
+.simple-list-container {
+  width: 30%;
+}
+.entity-form-container {
+  width: 70%;
+}
+
+@media (max-width: 767px) {
+  .simple-list-container {
+    width: 100%;
+  }
+  .entity-form-container {
+    width: 100%;
+  }
+}
