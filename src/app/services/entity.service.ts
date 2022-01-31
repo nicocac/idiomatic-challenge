@@ -38,9 +38,18 @@ export class EntityService {
     return entity
   }
 
+  private _persistEntities () {
+    sessionStorage.setItem('entities', JSON.stringify(this._entities))
+  }
+
+  private _getPersistedEntities (): Array<IEntity> {
+    return JSON.parse(sessionStorage.getItem('entities') || '{}')
+  }
+
   getEntities(): Observable<Array<IEntity>> {
     return new Observable((observer) => {
-      observer.next(this._entities)
+      const persisted = this._getPersistedEntities()
+      observer.next(persisted.entries.length ? persisted : this._entities)
     })
   }
 
@@ -48,6 +57,7 @@ export class EntityService {
     const newEntity = this._addNextId(entity)
     return new Observable((observer) => {
       this._entities.push(newEntity)
+      this._persistEntities()
       observer.next(this._entities)
     })
   }
@@ -56,6 +66,7 @@ export class EntityService {
     return new Observable((observer) => {
       const index = this._entities.map(element => element.id).indexOf(entity.id)
       this._entities[index] = {...entity}
+      this._persistEntities()
       observer.next(this._entities)
     })
   }
@@ -63,6 +74,7 @@ export class EntityService {
   deleteEntity(entity: IEntity): Observable<Array<IEntity>> {
     return new Observable((observer) => {
       this._entities = this._entities.filter(element => element.id !== entity.id)
+      this._persistEntities()
       observer.next(this._entities)
     })
   }
