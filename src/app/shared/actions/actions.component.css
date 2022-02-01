@@ -12,11 +12,11 @@
 }
 
 .btn-create {
-  background-color: lightgreen;
+  background-color: #6ee7b7;
 }
 .btn-update {
-  background-color: lightgoldenrodyellow;
+  background-color: #fde689;
 }
 .btn-delete {
-  background-color: coral;
+  background-color: #fca5a5;
 }

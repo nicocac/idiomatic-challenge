@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {IEntity} from "../../interfaces/entity.interface";
+import {IEntity} from "../../../interfaces/entity.interface";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({

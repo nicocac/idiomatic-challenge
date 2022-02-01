@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {EntityService} from "../../services/entity.service";
 import {IEntity} from "../../interfaces/entity.interface";
-import {map} from "rxjs";
 import {IOptions} from 'src/app/interfaces/options.interface';
 
 @Component({
@@ -21,10 +20,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this._entityService.getEntities()
-      .pipe(
-        map(arr => arr.sort((a: IEntity, b: IEntity) => a.name > b.name ? 1 : a.name < b.name ? -1 : 0)
-        )
-      ).subscribe(result => {
+      .subscribe(result => {
       this.entities = result.map(item => {
         return {
           ...item,
@@ -39,6 +35,7 @@ export class HomeComponent implements OnInit {
     this._entityService.addEntity(entity).subscribe(entities => {
       this.entities = entities
       this.filteredEntities = entities
+      this.clearSelected()
     })
   }
 
@@ -131,6 +128,7 @@ export class HomeComponent implements OnInit {
     this._entityService.updateEntity(entity).subscribe(entities => {
       this.entities = entities
       this.filteredEntities = entities
+      this.clearSelected()
     })
   }
 
