@@ -14,7 +14,7 @@ export class ActionsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  handleEvent(event: string) {
+  handleEvent(event: string): void {
     this.action.emit(event)
   }
 

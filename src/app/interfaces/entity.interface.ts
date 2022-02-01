@@ -3,4 +3,5 @@ export interface IEntity {
   name: string;
   surname: string;
   selected?: boolean;
+  valid?: boolean;
 }

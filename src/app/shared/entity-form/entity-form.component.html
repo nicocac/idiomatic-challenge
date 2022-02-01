@@ -1,14 +1,26 @@
-<div class="form">
-  <div class="form-row">
-    <label for="name-input" class="col-2">Name: </label>
-    <div class="col-10">
-      <input type="text" id="name-input" class="form-control" [(ngModel)]="entity.name" (input)="handleInput()"/>
+<form [formGroup]="contactForm">
+  <div class="form">
+    <div class="form-row">
+      <label for="name-input" class="col-2">Name: </label>
+      <div class="col-10">
+        <input type="text"
+               id="name-input"
+               class="form-control"
+               [(ngModel)]="entity.name"
+               (input)="handleInput()"
+               formControlName="name"/>
+      </div>
+    </div>
+    <div class="form-row">
+      <label for="surname-input" class="col-2">Surname: </label>
+      <div class="col-10">
+        <input type="text"
+               id="surname-input"
+               class="form-control"
+               [(ngModel)]="entity.surname"
+               (input)="handleInput()"
+               formControlName="surname"/>
+      </div>
     </div>
   </div>
-  <div class="form-row">
-    <label for="surname-input" class="col-2">Surname: </label>
-    <div class="col-10">
-      <input type="text" id="surname-input" class="form-control" [(ngModel)]="entity.surname" (input)="handleInput()"/>
-    </div>
-  </div>
-</div>
+</form>

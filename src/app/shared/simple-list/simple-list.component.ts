@@ -14,7 +14,7 @@ export class SimpleListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSelectEntity (entity: IEntity) {
+  onSelectEntity (entity: IEntity): void {
     this.selectEntity.emit(entity)
   }
 

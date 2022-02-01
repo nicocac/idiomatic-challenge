@@ -38,22 +38,27 @@ export class EntityService {
     return entity
   }
 
-  private _persistEntities () {
+  private _persistEntities (): void {
     sessionStorage.setItem('entities', JSON.stringify(this._entities))
   }
 
   private _getPersistedEntities (): Array<IEntity> {
-    return JSON.parse(sessionStorage.getItem('entities') || '{}')
+    return JSON.parse(sessionStorage.getItem('entities') || '[]')
+  }
+
+  private _checkIfExists (entity: IEntity) {
+    return !!this._entities.find(element => element.name === entity.name && element.surname === entity.surname)
   }
 
   getEntities(): Observable<Array<IEntity>> {
     return new Observable((observer) => {
       const persisted = this._getPersistedEntities()
-      observer.next(persisted.entries.length ? persisted : this._entities)
+      observer.next(persisted.length ? persisted : this._entities)
     })
   }
 
   addEntity(entity: IEntity): Observable<Array<IEntity>> {
+    if(this._checkIfExists(entity)) throw new Error ('The entity already exists.')
     const newEntity = this._addNextId(entity)
     return new Observable((observer) => {
       this._entities.push(newEntity)
