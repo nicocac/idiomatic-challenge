@@ -58,13 +58,8 @@ export class HomeComponent implements OnInit {
   clearSelected(): void {
     this.entity = {id: 0, name: '', surname: ''}
     this.options = this.changeUpdateDelete('disable')
-    this.entities = this.entities.map(element => {
-        return {
-          ...element,
-          selected: false
-        }
-      }
-    )
+    this.entities = this.unselectEntities()
+    this.filteredEntities = this.filterEntities(this.filterValue)
   }
 
   deleteEntity(entity: IEntity): void {
@@ -130,6 +125,16 @@ export class HomeComponent implements OnInit {
       this.filteredEntities = entities
       this.clearSelected()
     })
+  }
+
+  unselectEntities () {
+    return this.entities.map(element => {
+        return {
+          ...element,
+          selected: false
+        }
+      }
+    )
   }
 
 }

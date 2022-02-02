@@ -10,7 +10,6 @@ export class DynamicInputComponent implements OnInit {
   @Output() filterChange: EventEmitter<string> = new EventEmitter<string>()
   subject$ = new Subject()
   public prefixText: string = ''
-  constructor() { }
 
   ngOnInit(): void {
     this.subject$

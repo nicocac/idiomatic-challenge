@@ -6,13 +6,9 @@ import {IOptions} from "../../interfaces/options.interface";
   templateUrl: './actions.component.html',
   styleUrls: ['./actions.component.css']
 })
-export class ActionsComponent implements OnInit {
+export class ActionsComponent {
   @Input() options: IOptions = {create: true, update: false, delete: false}
   @Output() action: EventEmitter<string> = new EventEmitter<string>()
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   handleEvent(event: string): void {
     this.action.emit(event)

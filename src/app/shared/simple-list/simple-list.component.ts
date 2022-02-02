@@ -6,13 +6,9 @@ import {IEntity} from "../../interfaces/entity.interface";
   templateUrl: './simple-list.component.html',
   styleUrls: ['./simple-list.component.css']
 })
-export class SimpleListComponent implements OnInit {
+export class SimpleListComponent {
   @Input() data: Array<IEntity> = []
   @Output() selectEntity: EventEmitter<IEntity> = new EventEmitter<IEntity>()
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   onSelectEntity (entity: IEntity): void {
     this.selectEntity.emit(entity)

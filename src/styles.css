@@ -16,7 +16,7 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
-.form {
+.form-margin {
   margin-block-start: 1em;
   margin-block-end: 1em;
   margin-inline-start: 20px;
@@ -51,4 +51,10 @@ body {
   align-items: center;
   margin-right: 5px;
   font-weight: bold;
+}
+
+@media(max-width: 991px) {
+  .form-margin {
+    margin-inline-start: 0 !important;
+  }
 }
